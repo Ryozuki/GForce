@@ -1,10 +1,8 @@
-project(Tests)
-
+project(TestsDriver)
 add_subdirectory(lib/googletest)
 
 set(TESTS_SOURCES
-        test.cpp)
+        test.cpp vectors.cpp math.cpp)
 
-add_executable(Tests ${TESTS_SOURCES})
-target_link_libraries(Tests GForce gtest_main)
-add_test(TestName Tests)
+add_executable(TestsDriver ${TESTS_SOURCES})
+target_link_libraries(TestsDriver GForce gtest_main)

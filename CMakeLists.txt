@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(include)
 
 set(LIB_SOURCES
-        src/library.cpp)
+        src/Math.cpp)
 
 add_library(GForce ${LIB_SOURCES})
 add_subdirectory(tests)
