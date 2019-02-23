@@ -8,5 +8,6 @@
 
 #include "VMath.hpp"
 #include "Math.hpp"
+#include "Object2D.hpp"
 
 #endif

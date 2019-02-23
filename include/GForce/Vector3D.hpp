@@ -81,6 +81,10 @@ namespace gf
 			return (*this * other) / (length() * other.length());
 		}
 
+		bool isZero() const {
+			return x == 0 && y == 0 && z == 0;
+		}
+
 		Vector3DBase operator +(const Vector3DBase& other) const {
 			return Vector3DBase(x + other.x, y + other.y, z + other.z);
 		}
@@ -91,6 +95,10 @@ namespace gf
 
 		Vector3DBase operator -(const Vector3DBase& other) const {
 			return Vector3DBase(x - other.x, y - other.y, z - other.z);
+		}
+
+		Vector3DBase operator /(const T& scalar) const {
+			return Vector3DBase(x / scalar, y / scalar, z / scalar);
 		}
 
 		const Vector3DBase& operator +=(const Vector3DBase& other) {
@@ -104,6 +112,13 @@ namespace gf
 			x -= other.x;
 			y -= other.y;
 			z -= other.z;
+			return *this;
+		}
+
+		const Vector3DBase& operator /=(const T& scalar) {
+			x /= scalar;
+			y /= scalar;
+			z /= scalar;
 			return *this;
 		}
 

@@ -40,6 +40,10 @@ namespace gf
             return atan(y / x);
         }
 
+        bool isZero() const {
+            return x == 0 && y == 0;
+        }
+
         /**
          * Returns the length (size) of this vector.
          */
@@ -74,6 +78,10 @@ namespace gf
             return Vector2DBase(x - other.x, y - other.y);
         }
 
+        Vector2DBase operator /(const T& scalar) const {
+            return Vector2DBase(x / scalar, y / scalar);
+        }
+
         const Vector2DBase& operator +=(const Vector2DBase& other) {
             x += other.x;
             y += other.y;
@@ -86,12 +94,18 @@ namespace gf
             return *this;
         }
 
+        const Vector2DBase& operator /=(const T& scalar) {
+            x /= scalar;
+            y /= scalar;
+            return *this;
+        }
+
         T operator *(const Vector2DBase& other) const {
             return x * other.x + y * other.y;
         }
 
-        Vector2DBase operator *(const T& constant) const {
-            return Vector2DBase<T>(x * constant, y * constant);
+        Vector2DBase operator *(const T& scalar) const {
+            return Vector2DBase<T>(x * scalar, y * scalar);
         }
 
         Vector2DBase& operator =(const Vector2DBase& other) {
