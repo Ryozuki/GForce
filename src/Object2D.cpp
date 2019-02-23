@@ -77,7 +77,7 @@ namespace gf
 	{
 		double force = GRAVITATIONAL_CONSTANT * (getMass() * a.getMass()) / distanceTo(a);
 
-		Vector2D forceV = (a.getPosition() - getPosition()).normal();
+		Vector2D forceV = (a.getPosition() - getPosition()).direction();
 		forceV *= force;
 		addForce(forceV);
 		if(update_a)
