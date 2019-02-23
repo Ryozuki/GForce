@@ -1,5 +1,5 @@
 /*
- * (c) Edgar Luque. See LICENSE.txt in the root of the distribution for more information.
+ * (c) Ryozuki See LICENSE.txt in the root of the distribution for more information.
  * If you are missing that file, acquire a complete release at https://github.com/Ryozuki/GForce
  */
 
@@ -20,6 +20,11 @@ namespace gf
         union {
             T y, h;
         };
+
+        Vector2DBase() {
+            this->x = 0;
+            this->y = 0;
+        }
 
         Vector2DBase(T x, T y) {
             this->x = x;
@@ -45,7 +50,7 @@ namespace gf
         /**
          * Returns a normalized vector.
          */
-        Vector2DBase normalize() const {
+        Vector2DBase direction() const {
             return Vector2DBase(x / length(), y / length());
         }
 
@@ -107,6 +112,7 @@ namespace gf
     typedef Vector2DBase<double> Vector2D;
     typedef Vector2DBase<float> Vector2Df;
     typedef Vector2DBase<int> Vector2Di;
+    typedef Vector2DBase<unsigned  int> Vector2Du;
 }
 
 #endif //GFORCE_VECTOR2DBASE_HPP
