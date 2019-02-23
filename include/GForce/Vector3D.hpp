@@ -115,6 +115,13 @@ namespace gf
 			return *this;
 		}
 
+		const Vector3DBase& operator *=(const T& scalar) {
+			x *= scalar;
+			y *= scalar;
+			z *= scalar;
+			return *this;
+		}
+
 		const Vector3DBase& operator /=(const T& scalar) {
 			x /= scalar;
 			y /= scalar;

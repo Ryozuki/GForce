@@ -23,14 +23,14 @@ namespace gf
 
 		void setPosition(Vector2D new_pos);
 
-		Vector2D getPosition() { return m_Position; }
+		Vector2D getPosition() const { return m_Position; }
 
 		/**
 		 * Sets the mass of the object
 		 */
 		void setMass(double mass);
 
-		double getMass() { return m_Mass; }
+		double getMass() const { return m_Mass; }
 
 		/**
 		 * Adds a force to the object.
@@ -42,7 +42,7 @@ namespace gf
 		 */
 		void setForce(Vector2D force);
 
-		Vector2D getForce() { return m_Force; }
+		Vector2D getForce() const { return m_Force; }
 
 		void addVelocity(Vector2D vel);
 
@@ -50,7 +50,7 @@ namespace gf
 
 		Vector2D getVelocity() { return m_Velocity; };
 
-		Vector2D getAcceleration();
+		Vector2D getAcceleration() const;
 
 		// Sets the force to 0.
 		void resetForce();
@@ -60,6 +60,14 @@ namespace gf
 
 		// Resets both velocity and force, thus stopping any motion.
 		void stopMovement();
+
+		double distanceTo(const Object2D &other) const;
+
+		/**
+		 * Applies the gravity force between the 2 objects.
+		 * If update_a is true a will be updated too.
+		 */
+		void applyGravity(Object2D &a, bool update_a = true);
 
 		/**
 		 * Updates the object based on the delta time, the current force.

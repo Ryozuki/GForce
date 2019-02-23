@@ -4,8 +4,7 @@
  */
 
 #include <GForce/Object2D.hpp>
-
-#include "GForce/Object2D.hpp"
+#include <GForce/Constants.hpp>
 
 namespace gf
 {
@@ -53,7 +52,7 @@ namespace gf
 		m_Velocity += vel;
 	}
 
-	Vector2D Object2D::getAcceleration()
+	Vector2D Object2D::getAcceleration() const
 	{
 		return getForce() / getMass();
 	}
@@ -72,5 +71,21 @@ namespace gf
 	{
 		resetForce();
 		resetVelocity();
+	}
+
+	void Object2D::applyGravity(Object2D &a, bool update_a)
+	{
+		double force = GRAVITATIONAL_CONSTANT * (getMass() * a.getMass()) / distanceTo(a);
+
+		Vector2D forceV = (a.getPosition() - getPosition()).normal();
+		forceV *= force;
+		addForce(forceV);
+		if(update_a)
+			a.addForce(-forceV);
+	}
+
+	double Object2D::distanceTo(const Object2D &other) const
+	{
+		return getPosition().distanceTo(other.getPosition());
 	}
 }

@@ -31,6 +31,10 @@ namespace gf
             this->y = y;
         }
 
+		double distanceTo(const Vector2DBase &to) const {
+			return sqrt(pow(to.x - x, 2) + pow(to.y - y, 2));
+		}
+
         double angleWith(const Vector2DBase& other) const {
             // TODO: Return the smallest angle? E.g if it's > 180, return angle - 180.
             return ((*this) * other) / (length() * other.length());
@@ -93,6 +97,12 @@ namespace gf
             y -= other.y;
             return *this;
         }
+
+		const Vector2DBase& operator *=(const T& scalar) {
+			x *= scalar;
+			y *= scalar;
+			return *this;
+		}
 
         const Vector2DBase& operator /=(const T& scalar) {
             x /= scalar;

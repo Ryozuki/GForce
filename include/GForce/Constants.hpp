@@ -3,12 +3,9 @@
  * If you are missing that file, acquire a complete release at https://github.com/Ryozuki/GForce
  */
 
-#ifndef GFORCE_LIBRARY_H
-#define GFORCE_LIBRARY_H
+#ifndef GFORCE_CONSTANTS_HPP
+#define GFORCE_CONSTANTS_HPP
 
-#include "VMath.hpp"
-#include "Math.hpp"
-#include "Object2D.hpp"
-#include "Constants.hpp"
+const double GRAVITATIONAL_CONSTANT = 0.0000000000667408;
 
-#endif
+#endif //GFORCE_CONSTANTS_HPP
