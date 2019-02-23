@@ -19,8 +19,8 @@ TEST(Vectors, Constructor)
     EXPECT_DOUBLE_EQ(vec3.x, 2);
     EXPECT_DOUBLE_EQ(vec3.y, 7.5);
     EXPECT_DOUBLE_EQ(vec3.z, 3.4);
-    EXPECT_DOUBLE_EQ(vec3.width, 3.4);
-    EXPECT_DOUBLE_EQ(vec3.height, 3.4);
+    EXPECT_DOUBLE_EQ(vec3.width, 2);
+    EXPECT_DOUBLE_EQ(vec3.height, 7.5);
     EXPECT_DOUBLE_EQ(vec3.depth, 3.4);
 }
 
@@ -46,7 +46,7 @@ TEST(Vectors, Substraction)
     EXPECT_DOUBLE_EQ(vec.y, 2);
     EXPECT_DOUBLE_EQ(vec.h, 2);
 
-    gf::Vector3D vec3 = gf::Vector3D(5, 6, 1) + gf::Vector3D(2, 3, 5);
+    gf::Vector3D vec3 = gf::Vector3D(5, 6, 1) - gf::Vector3D(2, 3, 5);
     EXPECT_DOUBLE_EQ(vec3.x, 3);
     EXPECT_DOUBLE_EQ(vec3.y, 3);
     EXPECT_DOUBLE_EQ(vec3.z, -4);
@@ -101,8 +101,8 @@ TEST(Vectors, AngleBetweenTwoVectors)
 TEST(Vectors, Angle)
 {
     gf::Vector2D vec(3, 4);
-    EXPECT_DOUBLE_EQ(vec.angle(), 0.78539816339744828);
-    EXPECT_DOUBLE_EQ(gf::Math::toDegrees(vec.angle()) , 45);
+    EXPECT_DOUBLE_EQ(vec.angle(), 0.92729521800161219);
+    EXPECT_DOUBLE_EQ(gf::Math::toDegrees(vec.angle()) , 53.13010235415598);
 }
 
 TEST(Vectors, Direction)
